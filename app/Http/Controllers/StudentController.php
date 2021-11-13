@@ -27,7 +27,7 @@ class StudentController extends Controller
             'name' => 'required|max:191',
             'email' => 'required|email|max:191',
             'phone' => 'required|max:191',
-            'course' => 'required|max:191'
+            'message' => 'required|max:191'
         ]);
 
         if ($validator->fails()) {
@@ -40,7 +40,7 @@ class StudentController extends Controller
             $student->name = $request->input('name');
             $student->email = $request->input('email');
             $student->phone = $request->input('phone');
-            $student->course = $request->input('course');
+            $student->message = $request->input('message');
             $student->save();
             return response()->json([
                 'status' => 200,
@@ -74,7 +74,7 @@ class StudentController extends Controller
             'name' => 'required|max:191',
             'email' => 'required|email|max:191',
             'phone' => 'required|max:191',
-            'course' => 'required|max:191'
+            'message' => 'required|max:191'
         ]);
 
         if ($validator->fails()) {
@@ -89,7 +89,7 @@ class StudentController extends Controller
                 $student->name = $request->input('name');
                 $student->email = $request->input('email');
                 $student->phone = $request->input('phone');
-                $student->course = $request->input('course');
+                $student->message = $request->input('message');
                 $student->update();
                 return response()->json([
                     'status' => 200,

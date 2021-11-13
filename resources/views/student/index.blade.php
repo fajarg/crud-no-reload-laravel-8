@@ -26,8 +26,8 @@
                     <input type="text" class="phone form-control">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="">Course</label>
-                    <input type="text" class="course form-control">
+                    <label for="">Message</label>
+                    <input type="text" class="message form-control">
                 </div>
             </div>
             <div class="modal-footer">
@@ -66,8 +66,8 @@
                     <input type="text" id="edit_phone" class="phone form-control">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="">Course</label>
-                    <input type="text" id="edit_course" class="course form-control">
+                    <label for="">Message</label>
+                    <input type="text" id="edit_message" class="message form-control">
                 </div>
             </div>
             <div class="modal-footer">
@@ -117,11 +117,11 @@
                     <table class="table table-bordered tabled-striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Date</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Course</th>
+                                <th>Message</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -154,11 +154,11 @@
                     $.each(response.students, function(key, item) {
                         $('tbody').append(`
                             <tr>
-                                <td>${item.id}</td>
+                                <td>${new Date(item.created_at)}</td>
                                 <td>${item.name}</td>
                                 <td>${item.email}</td>
                                 <td>${item.phone}</td>
-                                <td>${item.course}</td>
+                                <td>${item.message}</td>
                                 <td><button type="button" value="${item.id}" class="edit_student btn btn-primary btn-sm">edit</button></td>
                                 <td><button type="button" value="${item.id}" class="delete_student btn btn-danger btn-sm">delete</button></td>
                             </tr>
@@ -217,7 +217,7 @@
                         $('#edit_name').val(response.student.name);
                         $('#edit_email').val(response.student.email);
                         $('#edit_phone').val(response.student.phone);
-                        $('#edit_course').val(response.student.course);
+                        $('#edit_message').val(response.student.message);
                         $('#edit_stud_id').val(stud_id);
                     }
                 }
@@ -234,7 +234,7 @@
                 'name': $('#edit_name').val(),
                 'email': $('#edit_email').val(),
                 'phone': $('#edit_phone').val(),
-                'course': $('#edit_course').val(),
+                'message': $('#edit_message').val(),
             };
 
             $.ajaxSetup({
@@ -285,7 +285,7 @@
                 'name': $('.name').val(),
                 'email': $('.email').val(),
                 'phone': $('.phone').val(),
-                'course': $('.course').val()
+                'message': $('.message').val()
             }
 
             // console.log(data);
